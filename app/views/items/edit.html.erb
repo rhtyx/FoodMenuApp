@@ -1,0 +1,8 @@
+<h3>Edit <%= @item.name %></h3>
+<%= form_with model: @item do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.text_field :price, placeholder: "price" %>
+  <%= form.select :category_id, options_for_select([["food", 1], ["beverage", 2]], [@item.category.name, @item.category.id]) %>
+  <%= button_to 'Update', @item, method: :put, onclick: "confirm('Are you sure want to update this post?')" %>
+<% end %>
+<a href="/items">Back</a>
